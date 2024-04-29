@@ -40,18 +40,20 @@ CREATE OR REPLACE TABLE Authors (
 );
 
 CREATE OR REPLACE TABLE BooksOrders (
+	bookOrderID int NOT NULL AUTO_INCREMENT,
         bookID int,
 	orderID int,
 	quantity int NOT NULL,
-	PRIMARY KEY (bookID, orderID),
+	PRIMARY KEY (bookOrderID),
 	FOREIGN KEY (bookID) REFERENCES Books(bookID),
 	FOREIGN KEY (orderID) REFERENCES Orders(orderID)
 );
 
 CREATE OR REPLACE TABLE BooksAuthors (
+	bookAuthorID int NOT NULL AUTO_INCREMENT,
         bookID int,
 	authorID int,
-	PRIMARY KEY (bookID, authorID),
+	PRIMARY KEY (bookAuthorID),
 	FOREIGN KEY (bookID) REFERENCES Books(bookID),
 	FOREIGN KEY (authorID) REFERENCES Authors(authorID)
 );
