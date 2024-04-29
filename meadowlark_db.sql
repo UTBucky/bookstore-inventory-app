@@ -43,6 +43,7 @@ CREATE OR REPLACE TABLE BooksOrders (
         bookID int,
 	orderID int,
 	quantity int NOT NULL,
+	PRIMARY KEY (bookID, orderID),
 	FOREIGN KEY (bookID) REFERENCES Books(bookID),
 	FOREIGN KEY (orderID) REFERENCES Orders(orderID)
 );
@@ -50,6 +51,7 @@ CREATE OR REPLACE TABLE BooksOrders (
 CREATE OR REPLACE TABLE BooksAuthors (
         bookID int,
 	authorID int,
+	PRIMARY KEY (bookID, authorID),
 	FOREIGN KEY (bookID) REFERENCES Books(bookID),
 	FOREIGN KEY (authorID) REFERENCES Authors(authorID)
 );
@@ -68,15 +70,32 @@ DESCRIBE BooksAuthors;
 
 INSERT INTO Customers (fName, lName, phoneNumber) VALUES 
 	('Jane', 'Doe', '555-555-1234'),
-	('John', 'Smith', '555-555-2345');
+	('John', 'Smith', '555-555-2345'),
+	('Joe', 'Schmo', '555-555-3456');
 
---INSERT INTO Books () VALUES ();
+INSERT INTO Authors (fName, lName) VALUES
+        ('Professor', 'Coder'),
+        ('George', 'Orwell'),
+        ('Ted', 'Chiang');
 
---INSERT INTO Orders () VALUES ();
+INSERT INTO Publishers (name) VALUES
+        ('Miracle Publishing'),
+        ('Signet Classic'),
+        ('Penguin Books');
 
---INSERT INTO Authors () VALUES ();
+INSERT INTO Books (title, price, publisherID) VALUES 
+	('Hello World: Programming 101', 39.99, (SELECT publisherID FROM Publishers WHERE name = 'Miracle Publishing')),
+	('Animal Farm', 19.99, (SELECT publisherID FROM Publishers WHERE name = 'Signet Classic')),
+	('Exhalation', 29.99, (SELECT publisherID FROM Publishers WHERE name = 'Penguin Books'));
 
---INSERT INTO Publishers () VALUES ();
+INSERT INTO Orders (customerID, dateOrdered, orderType) VALUES 
+	((SELECT customerID FROM Customers WHERE fName = 'Joe' AND lName = 'Schmo'), 20240428, 'IN STORE'),
+	((SELECT customerID FROM Customers WHERE fName = 'Jane' AND lName = 'Doe'), 20240427, 'DELIVERY'),
+	((SELECT customerID FROM Customers WHERE fName = 'John' AND lName = 'Smith'), 20240429, 'PICK UP');
+
+-- INSERT INTO BooksOrders () VALUES ();
+
+-- INSERT INTO BooksAuthors () VALUES ();
 
 -- SELECT * to Verify Sample Data:
 
