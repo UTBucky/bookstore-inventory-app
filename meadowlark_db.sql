@@ -1,5 +1,11 @@
--- Create Tables:
+-- Tallent ‘Bucky’ Hagan and Cassidy Williams;
+-- CS340 Team 55;
+-- Meadowlark Books;
 
+SET FOREIGN_KEY_CHECKS=0;
+SET AUTOCOMMIT = 0;
+
+-- Create Tables:
 CREATE OR REPLACE TABLE Customers (
         customerID int NOT NULL AUTO_INCREMENT,
         fName varchar(50),
@@ -21,6 +27,7 @@ CREATE OR REPLACE TABLE Books (
 	publisherID int,
 	PRIMARY KEY (bookID),
 	FOREIGN KEY (publisherID) REFERENCES Publishers(publisherID)
+	ON DELETE SET NULL
 );
 
 CREATE OR REPLACE TABLE Orders (
@@ -28,8 +35,9 @@ CREATE OR REPLACE TABLE Orders (
         customerID int NOT NULL,
 	dateOrdered date NOT NULL,
 	orderType varchar(50),
-	FOREIGN KEY (customerID) REFERENCES Customers(customerID),
-        PRIMARY KEY (orderID)
+	PRIMARY KEY (orderID),
+	FOREIGN KEY (customerID) REFERENCES Customers(customerID)
+        ON DELETE CASCADE
 );
 
 CREATE OR REPLACE TABLE Authors (
@@ -45,8 +53,10 @@ CREATE OR REPLACE TABLE BooksOrders (
 	orderID int,
 	quantity int NOT NULL,
 	PRIMARY KEY (bookOrderID),
-	FOREIGN KEY (bookID) REFERENCES Books(bookID),
+	FOREIGN KEY (bookID) REFERENCES Books(bookID)
+	ON DELETE CASCADE,
 	FOREIGN KEY (orderID) REFERENCES Orders(orderID)
+	ON DELETE CASCADE
 );
 
 CREATE OR REPLACE TABLE BooksAuthors (
@@ -54,8 +64,10 @@ CREATE OR REPLACE TABLE BooksAuthors (
         bookID int,
 	authorID int,
 	PRIMARY KEY (bookAuthorID),
-	FOREIGN KEY (bookID) REFERENCES Books(bookID),
+	FOREIGN KEY (bookID) REFERENCES Books(bookID)
+	ON DELETE CASCADE,
 	FOREIGN KEY (authorID) REFERENCES Authors(authorID)
+	ON DELETE CASCADE
 );
 
 -- DESCRIBE to Verify Tables:
@@ -96,21 +108,18 @@ INSERT INTO Orders (customerID, dateOrdered, orderType) VALUES
 	((SELECT customerID FROM Customers WHERE fName = 'John' AND lName = 'Smith'), 20240429, 'PICK UP');
 
 INSERT INTO BooksOrders (bookID, orderID, quantity) VALUES
-	-- 2 copies of Hello World and 1 copy of Animal Farm ordered by Joe Schmo (Single order)
 	(1, 1, 2),	
 	(2, 1, 1),
-	-- 5 copies of Exhalation ordered by Jane Doe
 	(3, 2, 5),
-	-- 1 copy of Exhalation ordered by John Smith
-	(3, 3, 1)
+	(3, 3, 1);
 	
 INSERT INTO BooksAuthors (bookID, authorID) VALUES
-	-- Hello World by Professor Coder
 	(1, 1),
-	-- Animal Farm by George Orwell
 	(2, 2),
-	-- Exhalation by Ted Chiang
 	(3, 3);
+
+SET FOREIGN_KEY_CHECKS=1;
+COMMIT;
 
 -- SELECT * to Verify Sample Data:
 
