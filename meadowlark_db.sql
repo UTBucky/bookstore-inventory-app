@@ -95,9 +95,22 @@ INSERT INTO Orders (customerID, dateOrdered, orderType) VALUES
 	((SELECT customerID FROM Customers WHERE fName = 'Jane' AND lName = 'Doe'), 20240427, 'DELIVERY'),
 	((SELECT customerID FROM Customers WHERE fName = 'John' AND lName = 'Smith'), 20240429, 'PICK UP');
 
--- INSERT INTO BooksOrders () VALUES ();
-
--- INSERT INTO BooksAuthors () VALUES ();
+INSERT INTO BooksOrders (bookID, orderID, quantity) VALUES
+	-- 2 copies of Hello World and 1 copy of Animal Farm ordered by Joe Schmo (Single order)
+	(1, 1, 2),	
+	(2, 1, 1),
+	-- 5 copies of Exhalation ordered by Jane Doe
+	(3, 2, 5),
+	-- 1 copy of Exhalation ordered by John Smith
+	(3, 3, 1)
+	
+INSERT INTO BooksAuthors (bookID, authorID) VALUES
+	-- Hello World by Professor Coder
+	(1, 1),
+	-- Animal Farm by George Orwell
+	(2, 2),
+	-- Exhalation by Ted Chiang
+	(3, 3);
 
 -- SELECT * to Verify Sample Data:
 
