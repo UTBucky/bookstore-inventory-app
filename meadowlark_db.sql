@@ -49,7 +49,7 @@ CREATE OR REPLACE TABLE Authors (
 
 CREATE OR REPLACE TABLE BooksOrders (
 	bookOrderID int NOT NULL AUTO_INCREMENT,
-        bookID int,
+  bookID int,
 	orderID int,
 	quantity int NOT NULL,
 	PRIMARY KEY (bookOrderID),
@@ -61,7 +61,7 @@ CREATE OR REPLACE TABLE BooksOrders (
 
 CREATE OR REPLACE TABLE BooksAuthors (
 	bookAuthorID int NOT NULL AUTO_INCREMENT,
-        bookID int,
+  bookID int,
 	authorID int,
 	PRIMARY KEY (bookAuthorID),
 	FOREIGN KEY (bookID) REFERENCES Books(bookID)
