@@ -12,11 +12,11 @@ INSERT INTO Customers (fName, lName, phoneNumber) VALUES
 
 -- display existing customer info of selected customerID
 SELECT customerID, fName AS 'First Name', lName AS 'Last Name', phoneNumber as 'Phone Number' FROM Customers
-WHERE id= :customerIDselection;
+WHERE customerID = :customerIDselection;
 
 -- edit existing customer info
 UPDATE Customers SET fName = :fNameInput, lName = :lNameInput, phoneNumber = :phoneNumberInput
-WHERE id= :customerIDselection;
+WHERE customerID = :customerIDselection;
 
 -- delete existing customer
 DELETE FROM Customers WHERE customerID = :customerIDSelection;
@@ -38,7 +38,7 @@ INSERT INTO Orders (customerID, dateOrdered, orderType) VALUES
  :customerIDSelection), :dateOrderedInput, :orderTypeInput)
 
 -- edit existing order info
-UPDATE Orders SET customerID = (SELECT customerID FROM Customers WHERE id = :customerIDselection), dateOrdered = :dateOrderedInput, orderType = :orderTypeInput WHERE orderID = :orderIDSelection;
+UPDATE Orders SET customerID = (SELECT customerID FROM Customers WHERE customerID = :customerIDselection), dateOrdered = :dateOrderedInput, orderType = :orderTypeInput WHERE orderID = :orderIDSelection;
 
 -- delete order
 DELETE FROM Orders WHERE orderID = :orderIDSelection;
@@ -58,7 +58,7 @@ INSERT INTO BooksOrders (bookID, orderID, quantity) VALUES
 
 -- edit existing line item in BooksOrders
 UPDATE BooksOrders SET bookID = :bookIDInput, orderID = :orderIDInput, quantity = :quantityInput
-WHERE id= :bookOrderIDSelection;
+WHERE bookOrderID = :bookOrderIDSelection;
 
 -- delete line item in BooksOrders
 DELETE FROM BooksOrders WHERE bookOrderID = :bookOrderIDSelection;
@@ -75,11 +75,11 @@ INSERT INTO Authors (fName, lName) VALUES
 
 -- display existing author info of selected authorID
 SELECT authorID, fName AS 'First Name', lName AS 'Last Name' FROM Authors
-WHERE id= :authorIDselection;
+WHERE authorID = :authorIDselection;
 
 -- edit existing author info
 UPDATE Authors SET fName = :fNameInput, lName = :lNameInput
-WHERE id= :authorIDselection;
+WHERE authorID = :authorIDselection;
 
 -- delete existing author
 DELETE FROM Authors WHERE authorID = :authorIDSelection;
@@ -88,7 +88,7 @@ DELETE FROM Authors WHERE authorID = :authorIDSelection;
 -- BooksAuthors Queries --
 
 -- display all authors for a selected book
-SELECT bookAuthorID, Books.title AS 'Book Title', Author.fName || ' ' || Author.lName AS "Author"
+SELECT bookAuthorID, Books.title AS 'Book Title', CONCAT(Authors.fName, " ", Authors.lName) AS "Author"
 	FROM BooksAuthors
 	INNER JOIN Books ON BooksAuthors.bookID = Books.bookID
 	INNER JOIN Authors ON BooksAuthors.authorID = Authors.authorID
@@ -100,7 +100,7 @@ INSERT INTO BooksAuthors (bookID, authorID) VALUES
 
 -- edit bookID and authorID for BooksAuthors
 UPDATE BooksAuthors SET bookID = :bookIDInput, authorID = :authorIDInput
-WHERE id= :bookAuthorIDSelection;
+WHERE BookAuthorID= :bookAuthorIDSelection;
 
 -- delete book and author relationship in BooksAuthors
 DELETE FROM BooksAuthors WHERE bookAuthorID = :bookAuthorIDSelection;
@@ -117,11 +117,11 @@ INSERT INTO Publishers (name) VALUES
 
 -- display existing publisher info of selected publisherID
 SELECT name AS 'Name' FROM Publishers
-WHERE id= :publisherIDselection;
+WHERE publisherID = :publisherIDselection;
 
 -- edit existing publisher info
 UPDATE Publishers SET name = :nameInput
-WHERE id= :publisherIDselection;
+WHERE publisherID = :publisherIDselection;
 
 -- delete existing publisher
 DELETE FROM Publishers WHERE publisherID = :publisherIDSelection;

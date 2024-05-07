@@ -27,6 +27,7 @@ CREATE OR REPLACE TABLE Books (
 	publisherID int,
 	PRIMARY KEY (bookID),
 	FOREIGN KEY (publisherID) REFERENCES Publishers(publisherID)
+	-- On publisher delete, removes publisherID FK but keeps Book record
 	ON DELETE SET NULL
 );
 
@@ -37,6 +38,7 @@ CREATE OR REPLACE TABLE Orders (
 	orderType varchar(50),
 	PRIMARY KEY (orderID),
 	FOREIGN KEY (customerID) REFERENCES Customers(customerID)
+	-- On customer delete, removes any associated Order records
         ON DELETE CASCADE
 );
 
@@ -49,14 +51,16 @@ CREATE OR REPLACE TABLE Authors (
 
 CREATE OR REPLACE TABLE BooksOrders (
 	bookOrderID int NOT NULL AUTO_INCREMENT,
-  bookID int,
+ 	bookID int,
 	orderID int,
 	quantity int NOT NULL,
 	PRIMARY KEY (bookOrderID),
 	FOREIGN KEY (bookID) REFERENCES Books(bookID)
+	-- On book delete, removes any associated BooksOrders records
 	ON DELETE CASCADE,
 	FOREIGN KEY (orderID) REFERENCES Orders(orderID)
-	ON DELETE CASCADE
+	-- On Customer (because of delete cascade for Orders) or Order delete, sets orderID FK to null but keeps BooksOrder record so sales quantity can be tracked
+	ON DELETE SET NULL
 );
 
 CREATE OR REPLACE TABLE BooksAuthors (
@@ -65,8 +69,10 @@ CREATE OR REPLACE TABLE BooksAuthors (
 	authorID int,
 	PRIMARY KEY (bookAuthorID),
 	FOREIGN KEY (bookID) REFERENCES Books(bookID)
+	-- On Book deletion, removes BookAuthors record
 	ON DELETE CASCADE,
 	FOREIGN KEY (authorID) REFERENCES Authors(authorID)
+	-- On Author deletion, removes BookAuthors record
 	ON DELETE CASCADE
 );
 
@@ -90,17 +96,23 @@ INSERT INTO Customers (fName, lName, phoneNumber) VALUES
 INSERT INTO Authors (fName, lName) VALUES
         ('Professor', 'Coder'),
         ('George', 'Orwell'),
-        ('Ted', 'Chiang');
+        ('Ted', 'Chiang'),
+	('Neil', 'Gaiman'),
+	('Terry', 'Pratchett');
 
 INSERT INTO Publishers (name) VALUES
         ('Miracle Publishing'),
         ('Signet Classic'),
-        ('Penguin Books');
+        ('Penguin Books'),
+	('Workman'),
+	('DC Comics');
 
 INSERT INTO Books (title, price, publisherID) VALUES 
 	('Hello World: Programming 101', 39.99, (SELECT publisherID FROM Publishers WHERE name = 'Miracle Publishing')),
 	('Animal Farm', 19.99, (SELECT publisherID FROM Publishers WHERE name = 'Signet Classic')),
-	('Exhalation', 29.99, (SELECT publisherID FROM Publishers WHERE name = 'Penguin Books'));
+	('Exhalation', 29.99, (SELECT publisherID FROM Publishers WHERE name = 'Penguin Books')),
+	('Good Omens', 9.99, (SELECT publisherID FROM Publishers WHERE name = 'Workman')),
+	('The Sandman', 14.99, (SELECT publisherID FROM Publishers WHERE name = 'DC Comics'));
 
 INSERT INTO Orders (customerID, dateOrdered, orderType) VALUES 
 	((SELECT customerID FROM Customers WHERE fName = 'Joe' AND lName = 'Schmo'), 20240428, 'IN STORE'),
@@ -116,7 +128,10 @@ INSERT INTO BooksOrders (bookID, orderID, quantity) VALUES
 INSERT INTO BooksAuthors (bookID, authorID) VALUES
 	(1, 1),
 	(2, 2),
-	(3, 3);
+	(3, 3),
+	(4, 4),
+	(4, 5),
+	(5, 4);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
