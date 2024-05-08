@@ -8,17 +8,61 @@ Utilized bsg_HTML provided
 <head>
     <title>Orders</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+ <script language="JavaScript">
+        function showform(dowhat) {
+            /*
+            * four DIVS: browse, insert, update, delete
+            * this function sets one visible the others not
+            */
+            if (dowhat == 'insert') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'block';
+                document.getElementById('update').style.display = 'none';
+                document.getElementById('delete').style.display = 'none';
+            }
+            else if (dowhat == 'update') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('update').style.display = 'block';
+                document.getElementById('delete').style.display = 'none';
+            }
+            else if (dowhat == 'delete') {
+                document.getElementById('browse').style.display = 'none';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('update').style.display = 'none';
+                document.getElementById('delete').style.display = 'block';
+            }
+            else if (dowhat == 'all') {
+                document.getElementById('browse').style.display = 'block';
+                document.getElementById('insert').style.display = 'block';
+                document.getElementById('update').style.display = 'block';
+                document.getElementById('delete').style.display = 'block';
+            }
+            else { //by default display browse
+                document.getElementById('browse').style.display = 'block';
+                document.getElementById('insert').style.display = 'none';
+                document.getElementById('update').style.display = 'none';
+                document.getElementById('delete').style.display = 'none';
+            }
+        }
+        function newOrder() { showform('insert'); }
+        function updateOrder(pid) { showform('update'); }
+        function deleteOrder(pid) { showform('delete'); }
+        function browseOrders() { showform('browse'); }
+        function showAll() { showform('all'); }
+    </script>
 </head>
 
-<body>
+<body onload="browseOrders()">
     <h1>Orders</h1>
 
     [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
-    <div id="browse" style="display: block">
-        <p><strong>Browse Orders</strong></p>
+  
+  <div id="browse" style="display: block">
+        <p><a href="#" onClick="showAll()">Display all forms</a> </p>
         <table border="1" cellpadding="5">
             <tr>
-                <th><a href="#">New</a></th>
+                <th><a href="#" onClick="newOrder()">New</a></th>
                 <th></th>
                 <th>Order ID</th>
                 <th>Customer ID</th>
@@ -27,8 +71,8 @@ Utilized bsg_HTML provided
                 <th>Order Type</th>
             </tr>
             <tr>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
+                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
                 <td>1</td>
                 <td>3</td>
                 <td>Joe Schmo</td>
@@ -36,8 +80,8 @@ Utilized bsg_HTML provided
                 <td>IN STORE</td>
             </tr>
             <tr>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
+                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
                 <td>2</td>
                 <td>1</td>
                 <td>Jane Doe</td>
@@ -45,8 +89,8 @@ Utilized bsg_HTML provided
                 <td>DELIVERY</td>
             </tr>
             <tr>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
+                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
                 <td>3</td>
                 <td>2</td>
                 <td>John Smith</td>
