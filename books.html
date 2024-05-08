@@ -56,7 +56,7 @@ Utilized bsg_HTML provided
 <body onload="browseBooks()">
     <h1>Books</h1>
 
-    [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
+   [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
 
     <div id="browse">
         <p><a href="#" onClick="showAll()">Display all forms</a> </p>
@@ -92,6 +92,22 @@ Utilized bsg_HTML provided
                 <td>Exhalation</td>
                 <td>29.99</td>
                 <td>Penguin Books</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBook('this.BookID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBook('this.BookID')">Delete</a></td>
+                <td align="right">4</td>
+                <td>Good Omens</td>
+                <td>9.99</td>
+                <td>Workman</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBook('this.BookID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBook('this.BookID')">Delete</a></td>
+                <td align="right">5</td>
+                <td>The Sandman</td>
+                <td>14.99</td>
+                <td>DC Comics</td>
             </tr>
         </table>
 	<p>Books Authors</p>
