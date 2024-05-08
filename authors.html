@@ -56,7 +56,7 @@ Utilized bsg_HTML provided
 <body onload="browseAuthors()">
     <h1>Authors</h1>
 
-    [ <a href="orders.html">Orders</a> | <a href="customers.html">Customers</a> | <a href="authors.html">Authors</a> | <a href="books.html">Books</a> | <a href="publishers.html">Publishers</a> ]
+   [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
 
     <div id="browse">
         <p><a href="#" onClick="showAll()">Display all forms</a> </p>
@@ -88,6 +88,20 @@ Utilized bsg_HTML provided
                 <td align="right">3</td>
                 <td>Ted</td>
                 <td>Chiang</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateAuthor('this.AuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteAuthor('this.AuthorID')">Delete</a></td>
+                <td align="right">4</td>
+                <td>Neil</td>
+                <td>Gaiman</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateAuthor('this.AuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteAuthor('this.AuthorID')">Delete</a></td>
+                <td align="right">5</td>
+                <td>Terry</td>
+                <td>Pratchett</td>
             </tr>
         </table>
         <p>&nbsp;</p>

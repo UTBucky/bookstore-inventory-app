@@ -56,7 +56,7 @@ Utilized bsg_HTML provided
 <body onload="browseOrders()">
     <h1>Orders</h1>
 
-    [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
+   [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
   
   <div id="browse" style="display: block">
         <p><a href="#" onClick="showAll()">Display all forms</a> </p>
@@ -98,6 +98,50 @@ Utilized bsg_HTML provided
                 <td>PICK UP</td>
             </tr>
         </table>
+	<p> Books Orders </p>
+       <table border="1" cellpadding="5">
+            <tr>
+                <th><a href="#" onClick="newBookOrder()">New</a></th>
+                <th></th>
+                <th>Book Order ID</th>
+                <th>Book Title</th>
+                <th>Order ID</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
+                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td>1</td>
+                <td>Hello World: Programming 101</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
+                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td>2</td>
+                <td>Animal Farm</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
+                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td>3</td>
+                <td>Exhalation</td>
+                <td>2</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
+                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td>4</td>
+                <td>Exhalation</td>
+                <td>3</td>
+                <td>1</td>
+            </tr>
+        </table>
+
         <p>&nbsp;</p>
     </div> <!-- browse -->
     <div id="insert" style="display: block">
