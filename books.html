@@ -94,6 +94,58 @@ Utilized bsg_HTML provided
                 <td>Penguin Books</td>
             </tr>
         </table>
+	<p>Books Authors</p>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th><a href="#" onClick="newBookAuthor()">New</a></th>
+                <th></th>
+                <th>id</th>
+                <th>Book Title</th>
+                <th>Author Name</th>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookAuthor('this.BookAuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBookAuthor('this.BookAuthorID')">Delete</a></td>
+                <td align="right">1</td>
+                <td>Hello World: Programming 101</td>
+                <td>Professor Coder</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookAuthor('this.BookAuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBookAuthor('this.BookAuthorID')">Delete</a></td>
+                <td align="right">2</td>
+                <td>Animal Farm</td>
+                <td>George Orwell</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookAuthor('this.BookAuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBookAuthor('this.BookAuthorID')">Delete</a></td>
+                <td align="right">3</td>
+                <td>Exhalation</td>
+                <td>Ted Chiang</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookAuthor('this.BookAuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBookAuthor('this.BookAuthorID')">Delete</a></td>
+                <td align="right">4</td>
+                <td>Good Omens</td>
+                <td>Neil Gaiman</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookAuthor('this.BookAuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBookAuthor('this.BookAuthorID')">Delete</a></td>
+                <td align="right">5</td>
+                <td>Good Omens</td>
+                <td>Terry Pratchett</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="updateBookAuthor('this.BookAuthorID')">Edit</a></td>
+                <td><a href="#" onclick="deleteBookAuthor('this.BookAuthorID')">Delete</a></td>
+                <td align="right">6</td>
+                <td>The Sandman</td>
+                <td>Neil Gaiman</td>
+            </tr>
+        </table>
         <p>&nbsp;</p>
     </div> <!-- browse -->
     <div id="insert">
@@ -105,6 +157,15 @@ Utilized bsg_HTML provided
                 <label> Publisher </label> <input type="text" name="Publisher">
             </fieldset>
             <input class="btn" type="submit" id="addBook" value="Add Book">
+            <input class="btn" type="button" value="cancel" onClick="browseBooks()">
+        </form>
+        <form method="POST" id="addBookAuthor">
+            <legend><strong>Add Book Author</strong></legend>
+            <fieldset class="fields">
+                <label> Title </label> <input type="text" name="Book Title">
+                <label> Author </label> <input type="text" name="Author">
+            </fieldset>
+            <input class="btn" type="submit" id="addBookAuthor" value="Add Book Author">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
         </form>
     </div><!-- insert -->
@@ -122,6 +183,18 @@ Utilized bsg_HTML provided
             <input class="btn" type="submit" id="UpdateSaveBook" value="Save Update Book">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
         </form>
+	<form method="POST" id="UpdateBookAuthor">
+            <legend><strong>Update Book Author</strong></legend>
+            <fieldset class="fields">
+                <input type="hidden" name="BookAuthorID" id="updateBookAuthorID" value="1">
+                <label> ID: </label> 1
+                <label> Title </label> <input type="text" name="Book Title">
+                <label> Author </label> <input type="text" name="Author">
+            </fieldset>
+            <input class="btn" type="submit" id="UpdateSaveBookAuthor" value="Save Update Book Author">
+            <input class="btn" type="button" value="cancel" onClick="browseBooks()">
+        </form>
+
     </div><!-- update -->
     <p>&nbsp;</p>
     <div id="delete" style="display: block">
@@ -135,6 +208,18 @@ Utilized bsg_HTML provided
 
             </fieldset>
             <input class="btn" type="submit" id="DeleteBook" value="Delete Book">
+            <input class="btn" type="button" value="cancel" onClick="browseBooks()">
+        </form>
+        <form method="POST" id="deleteBookAuthor">
+            <legend><strong>Delete Book Author</strong></legend>
+            <fieldset class="fields">
+                <p>Are you sure you wish to delete the following?</p>
+                <input type="hidden" name="BookAuthorID" id="deleteBookAuthorID" value="1">
+                <label><strong>ID:</strong></label> 1
+                <label> <strong>Title</strong> </label> Hello World: Programming 101
+                <label> <strong>Author</strong> </label> Professor Coder
+            </fieldset>
+            <input class="btn" type="submit" id="DeleteBookAuthor" value="Delete Book Author">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
         </form>
     </div><!-- delete -->
