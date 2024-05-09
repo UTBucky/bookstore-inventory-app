@@ -98,7 +98,7 @@ Utilized bsg_HTML provided
                 <td>PICK UP</td>
             </tr>
         </table>
-	<p> Books Orders </p>
+	<p> BooksOrders </p>
        <table border="1" cellpadding="5">
             <tr>
                 <th><a href="#" onClick="newBookOrder()">New</a></th>
@@ -160,6 +160,17 @@ Utilized bsg_HTML provided
             <input class="btn" type="submit" id="addOrder" value="Add a Order">
             <input class="btn" type="button" value="cancel">
         </form> <!--add new Order-->
+	<!--add book to order form-->
+	<form method="POST" id="addBookOrder">
+            <legend><strong>Add Book to Order</strong></legend>
+            <fieldset class="fields">
+                <label> Book Title </label> <input type="text" name="bookTitle">
+                <label> Order ID </label> <input type="text" name="orderID">
+		<label> Quantity </label> <input type="text" name="quantity">
+            </fieldset>
+            <input class="btn" type="submit" id="addBookOrder" value="Add Book to Order">
+            <input class="btn" type="button" value="cancel" onClick="browseOrders()">
+        </form>
     </div><!-- insert -->
 
     <p>&nbsp;</p>
@@ -179,6 +190,17 @@ Utilized bsg_HTML provided
             <input class="btn" type="submit" id="UpdateSaveOrder" value="Save Update Order">
             <input class="btn" type="button" value="cancel">
         </form>
+	<form method="POST" id="UpdateBookOrder">
+            <legend><strong>Update Book</strong></legend>
+            <fieldset class="fields">
+                <input type="hidden" name="BookOrderID" id="updateBookID" value="1">
+                <label> Order ID: </label> 1
+                <label> Book Title </label> <input type="text" name="Title" value="Hello World: Programming 101">
+                <label> Quantity </label> <input type="text" name="quantity" value="2">
+            </fieldset>
+            <input class="btn" type="submit" id="UpdateSaveBookOrder" value="Save Update BookOrder">
+            <input class="btn" type="button" value="cancel" onClick="browseOrders()">
+        </form>
     </div><!-- update -->
     <p>&nbsp;</p>
     <div id="delete" style="display: block">
@@ -193,6 +215,17 @@ Utilized bsg_HTML provided
             <input class="btn" type="submit" id="DeleteOrder" value="Delete Order">
             <input class="btn" type="button" value="cancel">
         </form>
+	<form method="POST" id="deleteBookOrder">
+            <legend><strong>Delete Book on Order</strong></legend>
+            <fieldset class="fields">
+                <p>Are you sure you wish to delete the following?</p>
+                <input type="hidden" name="BookOrderID" id="deleteBookOrderID" value="1">
+                <label><strong>Order ID:</strong></label> 1
+                <label> <strong>Book Title</strong> </label> Hello World: Programming 101
+                <label> <strong>Quantity</strong> </label> 2
+            </fieldset>
+            <input class="btn" type="submit" id="DeleteBookOrder" value="Delete Book on Order">
+            <input class="btn" type="button" value="cancel" onClick="browseOrders()">
     </div><!-- delete -->
 </body>
 </html>
