@@ -62,7 +62,7 @@ Utilized bsg_HTML provided
         <p><a href="#" onClick="showAll()">Display all forms</a> </p>
         <table border="1" cellpadding="5">
             <tr>
-                <th><a href="#" onClick="newOrder()">New</a></th>
+                <th class="btn-box"><a href="#" onClick="newOrder()" class="btn-new">New</a></th>
                 <th></th>
                 <th>Order ID</th>
                 <th>Customer ID</th>
@@ -71,8 +71,8 @@ Utilized bsg_HTML provided
                 <th>Order Type</th>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateOrder('this.OrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteOrder('this.OrderID')" class="btn-dlt">Delete</a></td>
                 <td>1</td>
                 <td>3</td>
                 <td>Joe Schmo</td>
@@ -80,8 +80,8 @@ Utilized bsg_HTML provided
                 <td>IN STORE</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateOrder('this.OrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteOrder('this.OrderID')" class="btn-dlt">Delete</a></td>
                 <td>2</td>
                 <td>1</td>
                 <td>Jane Doe</td>
@@ -89,8 +89,8 @@ Utilized bsg_HTML provided
                 <td>DELIVERY</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateOrder('this.OrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteOrder('this.OrderID')" class="btn-dlt">Delete</a></td>
                 <td>3</td>
                 <td>2</td>
                 <td>John Smith</td>
@@ -101,7 +101,7 @@ Utilized bsg_HTML provided
 	<p> BooksOrders </p>
        <table border="1" cellpadding="5">
             <tr>
-                <th><a href="#" onClick="newBookOrder()">New</a></th>
+                <th class="btn-box"><a href="#" onClick="newBookOrder()" class="btn-new">New</a></th>
                 <th></th>
                 <th>Book Order ID</th>
                 <th>Book Title</th>
@@ -109,32 +109,32 @@ Utilized bsg_HTML provided
                 <th>Quantity</th>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>1</td>
                 <td>Hello World: Programming 101</td>
                 <td>1</td>
                 <td>2</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>2</td>
                 <td>Animal Farm</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>3</td>
                 <td>Exhalation</td>
                 <td>2</td>
                 <td>5</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>4</td>
                 <td>Exhalation</td>
                 <td>3</td>
@@ -154,7 +154,7 @@ Utilized bsg_HTML provided
                     <option value="2">2 John Smith</option>
                     <option value="3">3 Joe Schmo</option>
                 </select>
-                <label> Order Date </label> <input type="text" name="orderDate">
+                <label> Order Date </label> <input type="date" name="orderDate">
                 <label> Order Type </label> <input type="text" name="orderType">
             </fieldset>
             <input class="btn" type="submit" id="addOrder" value="Add a Order">
@@ -197,7 +197,7 @@ Utilized bsg_HTML provided
                     <option value="2">2 John Smith</option>
                     <option value="3">3 Joe Schmo</option>
                 </select>
-                <label> Order Date </label> <input type="text" name="orderDate" value="2024-04-28">
+                <label> Order Date </label> <input type="date" name="orderDate" value="2024-04-28">
                 <label> Order Type </label> <input type="text" name="orderType" value="IN STORE">
             </fieldset>
             <input class="btn" type="submit" id="UpdateSaveOrder" value="Save Update Order">
