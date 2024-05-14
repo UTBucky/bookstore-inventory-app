@@ -164,9 +164,22 @@ Utilized bsg_HTML provided
 	<form method="POST" id="addBookOrder">
             <legend><strong>Add Book to Order</strong></legend>
             <fieldset class="fields">
-                <label> Book Title </label> <input type="text" name="bookTitle">
-                <label> Order ID </label> <input type="text" name="orderID">
-		<label> Quantity </label> <input type="text" name="quantity">
+                <label>Book Title</label> <select name="Book Title">
+                    <option value="0">&nbsp;</option>
+                    <option value="1">1 Hello World: Programming 101</option>
+                    <option value="2">2 Animal Farm</option>
+                    <option value="3">3 Exhalation</option>
+                    <option value="4">4 Good Omens</option>
+                    <option value="5">5 The Sandman</option>
+                </select>
+                <label>Order ID</label> <select name="Order ID">
+                    <option value="0">&nbsp;</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+		<label> Quantity </label> <input type="number" name="quantity">
             </fieldset>
             <input class="btn" type="submit" id="addBookOrder" value="Add Book to Order">
             <input class="btn" type="button" value="cancel" onClick="browseOrders()">
@@ -191,12 +204,19 @@ Utilized bsg_HTML provided
             <input class="btn" type="button" value="cancel">
         </form>
 	<form method="POST" id="UpdateBookOrder">
-            <legend><strong>Update Book</strong></legend>
+            <legend><strong>Update Book on Order</strong></legend>
             <fieldset class="fields">
                 <input type="hidden" name="BookOrderID" id="updateBookID" value="1">
                 <label> Order ID: </label> 1
-                <label> Book Title </label> <input type="text" name="Title" value="Hello World: Programming 101">
-                <label> Quantity </label> <input type="text" name="quantity" value="2">
+                <label>Book Title</label> <select name="Book Title">
+                    <option value="0">&nbsp;</option>
+                    <option value="1" selected>1 Hello World: Programming 101</option>
+                    <option value="2">2 Animal Farm</option>
+                    <option value="3">3 Exhalation</option>
+                    <option value="4">4 Good Omens</option>
+                    <option value="5">5 The Sandman</option>
+                </select>
+                <label> Quantity </label> <input type="number" name="quantity" value="2">
             </fieldset>
             <input class="btn" type="submit" id="UpdateSaveBookOrder" value="Save Update BookOrder">
             <input class="btn" type="button" value="cancel" onClick="browseOrders()">

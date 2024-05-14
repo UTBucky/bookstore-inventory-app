@@ -170,7 +170,14 @@ Utilized bsg_HTML provided
             <fieldset class="fields">
                 <label> Title </label> <input type="text" name="Title">
                 <label> Price </label> <input type="text" name="Price">
-                <label> Publisher </label> <input type="text" name="Publisher">
+                <label> Publisher </label> <select name="Publisher">
+                    <option value="NULL" selected>Self Publish (NULL)</option>
+                    <option value="1">1 Miracle Publishing</option>
+                    <option value="2">2 Signet Classic</option>
+                    <option value="3">3 Penguin Books</option>
+                    <option value="4">4 Workman</option>
+                    <option value="5">5 DC Comics</option>
+                </select>
             </fieldset>
             <input class="btn" type="submit" id="addBook" value="Add Book">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
@@ -178,15 +185,31 @@ Utilized bsg_HTML provided
         <form method="POST" id="addBookAuthor">
             <legend><strong>Add Book Author</strong></legend>
             <fieldset class="fields">
-                <label> Title </label> <input type="text" name="Book Title">
-                <label> Author </label> <input type="text" name="Author">
+                <label>Book Title </label> <select name="Book Title">
+                    <option value="0">&nbsp;</option>
+                    <option value="1" selected>1 Hello World: Programming 101</option>
+                    <option value="2">2 Animal Farm</option>
+                    <option value="3">3 Exhalation</option>
+                    <option value="4">4 Good Omens</option>
+                    <option value="5">5 The Sandman</option>
+                </select>
+                <label> Author </label> <select name="Author">
+                    <option value="0">&nbsp;</option>
+                    <option value="1" selected>1 Professor Coder</option>
+                    <option value="2">2 George Orwell</option>
+                    <option value="3">3 Ted Chiang</option>
+                    <option value="4">4 Neil Gaiman</option>
+                    <option value="5">5 Terry Pratchett</option>
+                </select>
             </fieldset>
             <input class="btn" type="submit" id="addBookAuthor" value="Add Book Author">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
         </form>
-    </div><!-- insert -->
+    </div>
     <p>&nbsp;</p>
+    <!-- UPDATES -->
     <div id="update">
+        <!-- UPDATE Book -->
         <form method="POST" id="UpdateBook">
             <legend><strong>Update Book</strong></legend>
             <fieldset class="fields">
@@ -194,26 +217,50 @@ Utilized bsg_HTML provided
                 <label> ID: </label> 1
                 <label> Title </label> <input type="text" name="Title" value="Hello World: Programming 101">
                 <label> Price </label> <input type="text" name="Price" value="39.99">
-                <label> Publisher </label> <input type="text" name="Publisher" value="Miracle Publishing">
+                <label> Publisher </label> <select name="Publisher">
+                    <option value="NULL">Self Publish (NULL)</option>
+                    <option value="1" selected>1 Miracle Publishing</option>
+                    <option value="2">2 Signet Classic</option>
+                    <option value="3">3 Penguin Books</option>
+                    <option value="4">4 Workman</option>
+                    <option value="5">5 DC Comics</option>
+                </select>
             </fieldset>
             <input class="btn" type="submit" id="UpdateSaveBook" value="Save Update Book">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
         </form>
-	<form method="POST" id="UpdateBookAuthor">
+        <!-- UPDATE BookAuthor -->
+	    <form method="POST" id="UpdateBookAuthor">
             <legend><strong>Update Book Author</strong></legend>
             <fieldset class="fields">
                 <input type="hidden" name="BookAuthorID" id="updateBookAuthorID" value="1">
                 <label> ID: </label> 1
-                <label> Title </label> <input type="text" name="Book Title">
-                <label> Author </label> <input type="text" name="Author">
+                <label> Title </label> <select name="Book Title">
+                    <option value="0">&nbsp;</option>
+                    <option value="1" selected>1 Hello World: Programming 101</option>
+                    <option value="2">2 Animal Farm</option>
+                    <option value="3">3 Exhalation</option>
+                    <option value="4">4 Good Omens</option>
+                    <option value="5">5 The Sandman</option>
+                </select>
+                <label> Author </label> <select name="Author">
+                    <option value="0">&nbsp;</option>
+                    <option value="1" selected>1 Professor Coder</option>
+                    <option value="2">2 George Orwell</option>
+                    <option value="3">3 Ted Chiang</option>
+                    <option value="4">4 Neil Gaiman</option>
+                    <option value="5">5 Terry Pratchett</option>
+                </select>
             </fieldset>
             <input class="btn" type="submit" id="UpdateSaveBookAuthor" value="Save Update Book Author">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
         </form>
 
-    </div><!-- update -->
+    </div>
     <p>&nbsp;</p>
+    <!-- DELETE -->
     <div id="delete" style="display: block">
+        <!-- DELETE Book -->
         <form method="POST" id="deleteBook">
             <legend><strong>Delete Book</strong></legend>
             <fieldset class="fields">
@@ -226,6 +273,7 @@ Utilized bsg_HTML provided
             <input class="btn" type="submit" id="DeleteBook" value="Delete Book">
             <input class="btn" type="button" value="cancel" onClick="browseBooks()">
         </form>
+        <!-- DELETE BookAuthor -->
         <form method="POST" id="deleteBookAuthor">
             <legend><strong>Delete Book Author</strong></legend>
             <fieldset class="fields">
