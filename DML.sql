@@ -59,6 +59,7 @@ SELECT publisherID, name AS 'Name' FROM Publishers;
 
 -- display existing book info of selected bookID
 SELECT bookID, title AS 'Title', price AS 'Price', Publishers.name as 'Publisher' FROM Books
+INNER JOIN Books ON Publishers.publisherID = Books.publisherID
 WHERE bookID = :bookIDselection;
 
 -- edit existing book info
