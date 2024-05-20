@@ -43,6 +43,31 @@ UPDATE Orders SET customerID = (SELECT customerID FROM Customers WHERE customerI
 -- delete order
 DELETE FROM Orders WHERE orderID = :orderIDSelection;
 
+-- Books Queries --
+
+-- get all books and info for browse books page
+SELECT bookID, title AS 'Title', price AS 'Price', Publishers.name as 'Publisher' 
+FROM Books
+INNER JOIN Books ON Publishers.publisherID = Books.publisherID;
+
+-- add new book info
+INSERT INTO Books (title, price, publisherID) VALUES
+(:titleInput, :priceInput, :publisherIDFromDropdownInput);
+
+-- dropdown to select publisherID
+SELECT publisherID, name AS 'Name' FROM Publishers;
+
+-- display existing book info of selected bookID
+SELECT bookID, title AS 'Title', price AS 'Price', Publishers.name as 'Publisher' FROM Books
+INNER JOIN Books ON Publishers.publisherID = Books.publisherID
+WHERE bookID = :bookIDselection;
+
+-- edit existing book info
+UPDATE Books SET title = :titleInput, price = :priceInput, publisherID = :publisherIDFromDropdownInput
+WHERE bookID = :bookIDselection;
+
+-- delete existing book
+DELETE FROM Books WHERE bookID = :bookIDSelection;
 
 -- BooksOrders Queries --
 

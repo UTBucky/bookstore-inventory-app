@@ -56,34 +56,46 @@ Utilized bsg_HTML provided
 <body onload="browsePublishers()">
     <h1>Publishers</h1>
 
-    [ <a href="orders.html">Orders</a> | <a href="customers.html">Customers</a> | <a href="authors.html">Authors</a> | <a href="books.html">Books</a> | <a href="publishers.html">Publishers</a> ]
+    [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
 
     <div id="browse">
         <p><a href="#" onClick="showAll()">Display all forms</a> </p>
         <table border="1" cellpadding="5">
             <tr>
-                <th><a href="#" onClick="newPublisher()">New</a></th>
+                <th class="btn-box"><a href="#" onClick="newPublisher()" class="btn-new">New</a></th>
                 <th></th>
-                <th>id</th>
+                <th>Publisher ID</th>
                 <th>Name</th>
             </tr>
             <tr>
-                <td><a href="#" onClick="updatePublisher('this.PublisherID')">Edit</a></td>
-                <td><a href="#" onclick="deletePublisher('this.PublisherID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updatePublisher('this.PublisherID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deletePublisher('this.PublisherID')" class="btn-dlt">Delete</a></td>
                 <td align="right">1</td>
                 <td>Miracle Publishing</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updatePublisher('this.PublisherID')">Edit</a></td>
-                <td><a href="#" onclick="deletePublisher('this.PublisherID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updatePublisher('this.PublisherID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deletePublisher('this.PublisherID')" class="btn-dlt">Delete</a></td>
                 <td align="right">2</td>
                 <td>Signet Classic</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updatePublisher('this.PublisherID')">Edit</a></td>
-                <td><a href="#" onclick="deletePublisher('this.PublisherID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updatePublisher('this.PublisherID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deletePublisher('this.PublisherID')" class="btn-dlt">Delete</a></td>
                 <td align="right">3</td>
                 <td>Penguin Books</td>
+            </tr>
+            <tr>
+                <td class="btn-box"><a href="#" onClick="updatePublisher('this.PublisherID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deletePublisher('this.PublisherID')" class="btn-dlt">Delete</a></td>
+                <td align="right">4</td>
+                <td>Workman</td>
+            </tr>
+            <tr>
+                <td class="btn-box"><a href="#" onClick="updatePublisher('this.PublisherID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deletePublisher('this.PublisherID')" class="btn-dlt">Delete</a></td>
+                <td align="right">5</td>
+                <td>DC Comics</td>
             </tr>
         </table>
         <p>&nbsp;</p>
