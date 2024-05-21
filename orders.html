@@ -62,7 +62,7 @@ Utilized bsg_HTML provided
         <p><a href="#" onClick="showAll()">Display all forms</a> </p>
         <table border="1" cellpadding="5">
             <tr>
-                <th><a href="#" onClick="newOrder()">New</a></th>
+                <th class="btn-box"><a href="#" onClick="newOrder()" class="btn-new">New</a></th>
                 <th></th>
                 <th>Order ID</th>
                 <th>Customer ID</th>
@@ -71,8 +71,8 @@ Utilized bsg_HTML provided
                 <th>Order Type</th>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateOrder('this.OrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteOrder('this.OrderID')" class="btn-dlt">Delete</a></td>
                 <td>1</td>
                 <td>3</td>
                 <td>Joe Schmo</td>
@@ -80,8 +80,8 @@ Utilized bsg_HTML provided
                 <td>IN STORE</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateOrder('this.OrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteOrder('this.OrderID')" class="btn-dlt">Delete</a></td>
                 <td>2</td>
                 <td>1</td>
                 <td>Jane Doe</td>
@@ -89,8 +89,8 @@ Utilized bsg_HTML provided
                 <td>DELIVERY</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateOrder('this.OrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteOrder('this.OrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateOrder('this.OrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteOrder('this.OrderID')" class="btn-dlt">Delete</a></td>
                 <td>3</td>
                 <td>2</td>
                 <td>John Smith</td>
@@ -98,10 +98,10 @@ Utilized bsg_HTML provided
                 <td>PICK UP</td>
             </tr>
         </table>
-	<p> Books Orders </p>
+	<p> BooksOrders </p>
        <table border="1" cellpadding="5">
             <tr>
-                <th><a href="#" onClick="newBookOrder()">New</a></th>
+                <th class="btn-box"><a href="#" onClick="newBookOrder()" class="btn-new">New</a></th>
                 <th></th>
                 <th>Book Order ID</th>
                 <th>Book Title</th>
@@ -109,32 +109,32 @@ Utilized bsg_HTML provided
                 <th>Quantity</th>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>1</td>
                 <td>Hello World: Programming 101</td>
                 <td>1</td>
                 <td>2</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>2</td>
                 <td>Animal Farm</td>
                 <td>1</td>
                 <td>1</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>3</td>
                 <td>Exhalation</td>
                 <td>2</td>
                 <td>5</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateBookOrder('this.BookOrderID')">Edit</a></td>
-                <td><a href="#" onClick="deleteBookOrder('this.BookOrderID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateBookOrder('this.BookOrderID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onClick="deleteBookOrder('this.BookOrderID')" class="btn-dlt">Delete</a></td>
                 <td>4</td>
                 <td>Exhalation</td>
                 <td>3</td>
@@ -154,12 +154,36 @@ Utilized bsg_HTML provided
                     <option value="2">2 John Smith</option>
                     <option value="3">3 Joe Schmo</option>
                 </select>
-                <label> Order Date </label> <input type="text" name="orderDate">
+                <label> Order Date </label> <input type="date" name="orderDate">
                 <label> Order Type </label> <input type="text" name="orderType">
             </fieldset>
             <input class="btn" type="submit" id="addOrder" value="Add a Order">
             <input class="btn" type="button" value="cancel">
         </form> <!--add new Order-->
+	<!--add book to order form-->
+	<form method="POST" id="addBookOrder">
+            <legend><strong>Add Book to Order</strong></legend>
+            <fieldset class="fields">
+                <label>Book Title</label> <select name="Book Title">
+                    <option value="0">&nbsp;</option>
+                    <option value="1">1 Hello World: Programming 101</option>
+                    <option value="2">2 Animal Farm</option>
+                    <option value="3">3 Exhalation</option>
+                    <option value="4">4 Good Omens</option>
+                    <option value="5">5 The Sandman</option>
+                </select>
+                <label>Order ID</label> <select name="Order ID">
+                    <option value="0">&nbsp;</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+		<label> Quantity </label> <input type="number" name="quantity">
+            </fieldset>
+            <input class="btn" type="submit" id="addBookOrder" value="Add Book to Order">
+            <input class="btn" type="button" value="cancel" onClick="browseOrders()">
+        </form>
     </div><!-- insert -->
 
     <p>&nbsp;</p>
@@ -173,11 +197,29 @@ Utilized bsg_HTML provided
                     <option value="2">2 John Smith</option>
                     <option value="3">3 Joe Schmo</option>
                 </select>
-                <label> Order Date </label> <input type="text" name="orderDate" value="2024-04-28">
+                <label> Order Date </label> <input type="date" name="orderDate" value="2024-04-28">
                 <label> Order Type </label> <input type="text" name="orderType" value="IN STORE">
             </fieldset>
             <input class="btn" type="submit" id="UpdateSaveOrder" value="Save Update Order">
             <input class="btn" type="button" value="cancel">
+        </form>
+	<form method="POST" id="UpdateBookOrder">
+            <legend><strong>Update Book on Order</strong></legend>
+            <fieldset class="fields">
+                <input type="hidden" name="BookOrderID" id="updateBookID" value="1">
+                <label> Order ID: </label> 1
+                <label>Book Title</label> <select name="Book Title">
+                    <option value="0">&nbsp;</option>
+                    <option value="1" selected>1 Hello World: Programming 101</option>
+                    <option value="2">2 Animal Farm</option>
+                    <option value="3">3 Exhalation</option>
+                    <option value="4">4 Good Omens</option>
+                    <option value="5">5 The Sandman</option>
+                </select>
+                <label> Quantity </label> <input type="number" name="quantity" value="2">
+            </fieldset>
+            <input class="btn" type="submit" id="UpdateSaveBookOrder" value="Save Update BookOrder">
+            <input class="btn" type="button" value="cancel" onClick="browseOrders()">
         </form>
     </div><!-- update -->
     <p>&nbsp;</p>
@@ -193,6 +235,17 @@ Utilized bsg_HTML provided
             <input class="btn" type="submit" id="DeleteOrder" value="Delete Order">
             <input class="btn" type="button" value="cancel">
         </form>
+	<form method="POST" id="deleteBookOrder">
+            <legend><strong>Delete Book on Order</strong></legend>
+            <fieldset class="fields">
+                <p>Are you sure you wish to delete the following?</p>
+                <input type="hidden" name="BookOrderID" id="deleteBookOrderID" value="1">
+                <label><strong>Order ID:</strong></label> 1
+                <label> <strong>Book Title</strong> </label> Hello World: Programming 101
+                <label> <strong>Quantity</strong> </label> 2
+            </fieldset>
+            <input class="btn" type="submit" id="DeleteBookOrder" value="Delete Book on Order">
+            <input class="btn" type="button" value="cancel" onClick="browseOrders()">
     </div><!-- delete -->
 </body>
 </html>

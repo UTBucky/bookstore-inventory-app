@@ -1,1 +1,57 @@
-/* CSS Document */
+a:link { 
+    text-decoration: none; 
+  } 
+  a:visited { 
+    text-decoration: none; 
+  } 
+  a:hover { 
+    text-decoration: underline; 
+  } 
+  a:active { 
+    text-decoration: none; 
+  }
+
+table {
+    display: flex;
+    flex-direction: column;
+  }
+
+td {
+    font-size: 18px;
+    padding-right: 10px;
+}
+
+
+.btn-edit {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.btn-dlt {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.btn-new {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.new-th {
+    width: 50px;
+    
+}
+
+.btn-box {
+    width: 50px;
+    height:50px;
+}

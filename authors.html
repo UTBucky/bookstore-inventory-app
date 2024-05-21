@@ -56,49 +56,49 @@ Utilized bsg_HTML provided
 <body onload="browseAuthors()">
     <h1>Authors</h1>
 
-   [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
+    [ <a href="index.html">Home</a> | <a href="customers.html">Customers</a> | <a href="orders.html">Orders</a> | <a href="books.html">Books</a> | <a href="authors.html">Authors</a> | <a href="publishers.html">Publishers</a> ]
 
     <div id="browse">
         <p><a href="#" onClick="showAll()">Display all forms</a> </p>
         <table border="1" cellpadding="5">
             <tr>
-                <th><a href="#" onClick="newAuthor()">New</a></th>
+                <th class="btn-box"><a href="#" onClick="newAuthor()" class="btn-new">New</a></th>
                 <th></th>
-                <th>id</th>
+                <th>Author ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateAuthor('this.AuthorID')">Edit</a></td>
-                <td><a href="#" onclick="deleteAuthor('this.AuthorID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateAuthor('this.AuthorID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deleteAuthor('this.AuthorID')" class="btn-dlt">Delete</a></td>
                 <td align="right">1</td>
                 <td>Professor</td>
                 <td>Coder</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateAuthor('this.AuthorID')">Edit</a></td>
-                <td><a href="#" onclick="deleteAuthor('this.AuthorID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateAuthor('this.AuthorID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deleteAuthor('this.AuthorID')" class="btn-dlt">Delete</a></td>
                 <td align="right">2</td>
                 <td>George</td>
                 <td>Orwell</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateAuthor('this.AuthorID')">Edit</a></td>
-                <td><a href="#" onclick="deleteAuthor('this.AuthorID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateAuthor('this.AuthorID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deleteAuthor('this.AuthorID')" class="btn-dlt">Delete</a></td>
                 <td align="right">3</td>
                 <td>Ted</td>
                 <td>Chiang</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateAuthor('this.AuthorID')">Edit</a></td>
-                <td><a href="#" onclick="deleteAuthor('this.AuthorID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateAuthor('this.AuthorID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deleteAuthor('this.AuthorID')" class="btn-dlt">Delete</a></td>
                 <td align="right">4</td>
                 <td>Neil</td>
                 <td>Gaiman</td>
             </tr>
             <tr>
-                <td><a href="#" onClick="updateAuthor('this.AuthorID')">Edit</a></td>
-                <td><a href="#" onclick="deleteAuthor('this.AuthorID')">Delete</a></td>
+                <td class="btn-box"><a href="#" onClick="updateAuthor('this.AuthorID')" class="btn-edit">Edit</a></td>
+                <td class="btn-box"><a href="#" onclick="deleteAuthor('this.AuthorID')" class="btn-dlt">Delete</a></td>
                 <td align="right">5</td>
                 <td>Terry</td>
                 <td>Pratchett</td>
@@ -107,7 +107,7 @@ Utilized bsg_HTML provided
         <p>&nbsp;</p>
     </div> <!-- browse -->
     <div id="insert">
-        <form method="POST" id="addPlanet">
+        <form method="POST" id="addAuthor">
             <legend><strong>Add Author</strong></legend>
             <fieldset class="fields">
                 <label> First Name </label> <input type="text" name="fName">
@@ -124,8 +124,8 @@ Utilized bsg_HTML provided
             <fieldset class="fields">
                 <input type="hidden" name="AuthorID" id="updateAuthorID" value="1">
                 <label> ID: </label> 1
-                <label> First Name </label> <input type="text" name="fName" value="Jane">
-                <label> Last Name </label> <input type="text" name="lName" value="Doe">
+                <label> First Name </label> <input type="text" name="fName" value="Professor">
+                <label> Last Name </label> <input type="text" name="lName" value="Coder">
             </fieldset>
             <input class="btn" type="submit" id="UpdateSaveAuthor" value="Save Update Author">
             <input class="btn" type="button" value="cancel" onClick="browseAuthors()">
