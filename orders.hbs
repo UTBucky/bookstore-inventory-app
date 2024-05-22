@@ -1,0 +1,99 @@
+
+{{!-- The Data from our Database --}}
+<h2>Dynamic Orders Table</h2>
+{{!-- Create a table --}}
+<table id="orders-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+            <th>delete</th>
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.orderID}}</td>
+            <td>{{this.customerID}}</td>
+            <td>{{this.fName}}</td>
+            <td>{{this.lName}}</td>
+            <td>{{this.dateOrdered}}</td>
+            <td>{{this.orderType}}</td>
+            <td><button onclick="deleteOrder({{this.orderID}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="./js/delete_order.js"></script>
+
+{{!-- Form to add a record to the table using AJAX --}}
+<h2>Adding Order with AJAX</h2>
+<p>To add a new order, please enter the information below and click 'Submit'!</p>
+<form id="add-order-form-ajax">
+    <select name="input-customerid" id="input-customerid">
+        <option>Select a Customer</option>
+        {{#each customers}}
+        <option value="{{this.customerID}}">{{this.customerID}}: {{this.fName}} {{this.lName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-dateordered">Date Ordered: </label>
+    <input type="date" name="input-dateordered" id="input-dateordered">
+
+    <select name="input-ordertype" id="input-ordertype">
+        <option>Select Order Type</option>
+        <option value="IN STORE">In Store</option>
+        <option value="DELIVERY">Delivery</option>
+        <option value="PICK UP">Pick Up</option>
+    </select>
+    <input type="submit">
+</form>
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="./js/add_order.js"></script>
+
+
+<h2>Updating An Order</h2>
+<p>To update an order, select the order from the drop-down menu on the left and the desired changes from the drop down menus on the right</p>
+<form id="update-order-form-ajax">
+    <select name="input-orderid" id="input-orderid-update">
+        <option>Select an Order</option>
+        {{#each data}}
+        <option value="{{this.orderID}}">{{this.customerID}}: {{this.fName}} {{this.lName}} {{this.dateOrdered}}</option>
+        {{/each}}
+    </select>
+
+
+    <select name="input-customerid" id="input-customerid-update">
+        <option>Select a Customer</option>
+        {{#each customers}}
+        <option value="{{this.customerID}}">{{this.customerID}}: {{this.fName}} {{this.lName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-dateordered">Date Ordered: </label>
+    <input type="date" name="input-dateordered" id="input-dateordered-update">
+
+    <select name="input-ordertype" id="input-ordertype-update">
+        <option>Select Order Type</option>
+        <option value="IN STORE">In Store</option>
+        <option value="DELIVERY">Delivery</option>
+        <option value="PICK UP">Pick Up</option>
+    </select>
+    <input type="submit">
+
+</form>
+
+<script src="./js/update_order.js"></script>
