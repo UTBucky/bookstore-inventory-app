@@ -1,0 +1,61 @@
+{{!-- Create a table --}}
+<h2>Dynamic Books on Orders Table</h2>
+<table id="booksorders-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the bookOrderID, bookID, orderID, quantity --}}
+        {{#each data}}
+        <tr>
+            <td id="bookOrderID">{{this.bookOrderID}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.orderID}}</td>
+            <td>{{this.quantity}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Updating a Book Line Item on an Order</h2>
+<p>To update a book on an order select a BookOrderID from the drop-down menu on the left, 
+   then select a new book from the second dropdown, and input a new quantity in the third field</p>
+<form id="update-bookorder-form-ajax">
+
+    <label for="input-bookOrderID">Update Book on Order: </label>
+    <select name="input-bookOrderID" id="input-bookOrderID-update">
+        <option>Select a Book on Order</option>
+        {{#each data}}
+        <option value="{{this.bookOrderID}}">{{this.bookOrderID}}: {{this.title}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-bookID">Change book to: </label>
+    <select name="input-bookID" id="input-bookID-update">
+        <option>Select a Book</option>
+        {{#each books}}
+        <option value="{{this.bookID}}">{{this.title}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-quantity">New Quantity</label>
+    <input type="number" name="input-quantity" id="input-quantity"></input>
+    <input type="submit">
+
+</form>
+
+<script src="./js/update_booksorders.js"></script>
