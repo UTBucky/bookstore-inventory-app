@@ -1,3 +1,5 @@
+// Citation: Code from Node.JS Starter Guide used as template
+
 // Get the objects we need to modify
 let addPersonForm = document.getElementById('add-author-form-ajax');
 

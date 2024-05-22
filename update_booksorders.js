@@ -1,3 +1,5 @@
+// Citation: Code from Node.JS Starter Guide used as template
+
 // Get the objects we need to modify
 let updateBooksOrdersForm = document.getElementById('update-bookorder-form-ajax');
 

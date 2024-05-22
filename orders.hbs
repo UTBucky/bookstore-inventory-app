@@ -1,8 +1,9 @@
+<!-- Citation: Code from Node.JS Starter Guide used as template -->
 
 {{!-- The Data from our Database --}}
 <h2>Dynamic Orders Table</h2>
 {{!-- Create a table --}}
-<table id="orders-table">
+<table id="orders-table" class="dynamic-table">
 
     {{!-- Header section --}}
     <thead>
@@ -31,7 +32,7 @@
             <td>{{this.lName}}</td>
             <td>{{this.dateOrdered}}</td>
             <td>{{this.orderType}}</td>
-            <td><button onclick="deleteOrder({{this.orderID}})">Delete</button></td>
+            <td class="delete"><button onclick="deleteOrder({{this.orderID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -39,7 +40,8 @@
 <script src="./js/delete_order.js"></script>
 
 {{!-- Form to add a record to the table using AJAX --}}
-<h2>Adding Order with AJAX</h2>
+<div class="form-box">
+<h2>Create a New Order</h2>
 <p>To add a new order, please enter the information below and click 'Submit'!</p>
 <form id="add-order-form-ajax">
     <select name="input-customerid" id="input-customerid">
@@ -63,9 +65,10 @@
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add_order.js"></script>
+</div>
 
-
-<h2>Updating An Order</h2>
+<div class="form-box">
+<h2>Update An Order</h2>
 <p>To update an order, select the order from the drop-down menu on the left and the desired changes from the drop down menus on the right</p>
 <form id="update-order-form-ajax">
     <select name="input-orderid" id="input-orderid-update">
@@ -97,3 +100,4 @@
 </form>
 
 <script src="./js/update_order.js"></script>
+</div>

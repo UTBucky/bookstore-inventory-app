@@ -1,3 +1,5 @@
+// Citation: Code from Node.JS Starter Guide used as template
+
 // App.js
 
 /*

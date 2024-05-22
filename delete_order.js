@@ -1,3 +1,5 @@
+// Citation: Code from Node.JS Starter Guide used as template
+
 function deleteOrder(orderID) {
     // Put our data we want to send in a javascript object
     let data = {

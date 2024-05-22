@@ -1,3 +1,5 @@
+// Citation: Code from Node.JS Starter Guide used as template
+
 // Get the objects we need to modify
 let addOrderForm = document.getElementById('add-order-form-ajax');
 
@@ -70,20 +72,24 @@ addRowToTable = (data) => {
     let row = document.createElement("TR");
     let idCell = document.createElement("TD");
     let customerIDCell = document.createElement("TD");
+    let fNameCell = document.createElement("TD");
+    let lNameCell = document.createElement("TD");
     let dateOrderedCell = document.createElement("TD");
     let orderTypeCell = document.createElement("TD");
     let deleteCell = document.createElement("TD");
 
     // Fill the cells with correct data
-    idCell.innerText = newRow.id;
-    customerIDCell.innerText = newRow.customerid;
-    dateOrderedCell.innerText = newRow.dateordered;
-    orderTypeCell.innerText = newRow.ordertype;
+    idCell.innerText = newRow.orderID;
+    customerIDCell.innerText = newRow.customerID;
+    fNameCell.innerText = newRow.fName;
+    lNameCell.innerText = newRow.lName;
+    dateOrderedCell.innerText = newRow.dateOrdered;
+    orderTypeCell.innerText = newRow.orderType;
 
     deleteCell = document.createElement("button");
     deleteCell.innerHTML = "Delete";
     deleteCell.onclick = function(){
-        deleteOrder(newRow.id);
+        deleteOrder(newRow.orderID);
     };
 
 
@@ -94,6 +100,9 @@ addRowToTable = (data) => {
     row.appendChild(orderTypeCell);
     row.appendChild(deleteCell)
     
+    // Add a custom row attribute so the deleteRow function can find a newly added row
+    row.setAttribute('data-value', newRow.orderID);
+
     // Add the row to the table
     currentTable.appendChild(row);
 
