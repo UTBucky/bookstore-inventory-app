@@ -1,34 +1,31 @@
 // Citation: Code from Node.JS Starter Guide used as template
 
 // Get the objects we need to modify
-let addOrderForm = document.getElementById('add-order-form-ajax');
+let addBookAuthorForm = document.getElementById('add-booksauthors-form-ajax');
 
 // Modify the objects we need
-addOrderForm.addEventListener("submit", function (e) {
+addBookAuthorForm.addEventListener("submit", function (e) {
     
     // Prevent the form from submitting
     e.preventDefault();
 
     // Get form fields we need to get data from
-    let inputCustomerID = document.getElementById("input-customerid");
-    let inputDateOrdered = document.getElementById("input-dateordered");
-    let inputOrderType= document.getElementById("input-ordertype");
+    let inputTitle = document.getElementById("input-title");
+    let inputAuthor = document.getElementById("input-author");
 
     // Get the values from the form fields
-    let customerIDValue = inputCustomerID.value;
-    let dateOrderedeValue = inputDateOrdered.value;
-    let orderTypeValue = inputOrderType.value;
+    let titleValue = inputTitle.value;
+    let authorValue = inputAuthor.value;
 
     // Put our data we want to send in a javascript object
     let data = {
-        customerID: customerIDValue,
-        dateOrdered: dateOrderedeValue,
-        orderType: orderTypeValue
+        bookID: titleValue,
+        authorID: authorValue
     }
     
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/add-order-ajax", true);
+    xhttp.open("POST", "/add-booksauthors-ajax", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
     // Tell our AJAX request how to resolve
@@ -39,9 +36,8 @@ addOrderForm.addEventListener("submit", function (e) {
             addRowToTable(xhttp.response);
 
             // Clear the input fields for another transaction
-            inputCustomerID.value = '';
-            inputDateOrdered.value = '';
-            inputOrderType.value = '';
+            inputTitle.value = '';
+            inputAuthor.value = '';
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
             console.log("There was an error with the input.")
@@ -51,16 +47,14 @@ addOrderForm.addEventListener("submit", function (e) {
     // Send the request and wait for the response
     xhttp.send(JSON.stringify(data));
 
-
 })
 
-
 // Creates a single row from an Object representing a single record from 
-// bsg_people
+// BooksAuthors
 addRowToTable = (data) => {
 
     // Get a reference to the current table on the page and clear it out.
-    let currentTable = document.getElementById("orders-table");
+    let currentTable = document.getElementById("booksauthors-table");
 
     // Get the location where we should insert the new row (end of table)
     let newRowIndex = currentTable.rows.length;
@@ -72,41 +66,33 @@ addRowToTable = (data) => {
     // Create a row and 4 cells
     let row = document.createElement("TR");
     let idCell = document.createElement("TD");
-    let customerIDCell = document.createElement("TD");
-    let fNameCell = document.createElement("TD");
-    let lNameCell = document.createElement("TD");
-    let dateOrderedCell = document.createElement("TD");
-    let orderTypeCell = document.createElement("TD");
+    let bookCell = document.createElement("TD");
+    let firstNameCell = document.createElement("TD");
+    let lastNameCell = document.createElement("TD");
+
     let deleteCell = document.createElement("TD");
 
     // Fill the cells with correct data
-    idCell.innerText = newRow.orderID;
-    customerIDCell.innerText = newRow.customerID;
-    fNameCell.innerText = newRow.fName;
-    lNameCell.innerText = newRow.lName;
-    dateOrderedCell.innerText = newRow.dateOrdered;
-    orderTypeCell.innerText = newRow.orderType;
+    idCell.innerText = newRow.bookAuthorID;
+    bookCell.innerText = newRow.title;
+    firstNameCell.innerText = newRow.fName;
+    lastNameCell.innerText = newRow.lName;
 
     deleteCell = document.createElement("button");
     deleteCell.innerHTML = "Delete";
     deleteCell.onclick = function(){
-        deleteOrder(newRow.orderID);
+        deleteBookAuthor(newRow.bookAuthorID);
     };
-
 
     // Add the cells to the row 
     row.appendChild(idCell);
-    row.appendChild(customerIDCell);
-    row.appendChild(fNameCell);
-    row.appendChild(lNameCell);
-    row.appendChild(dateOrderedCell);
-    row.appendChild(orderTypeCell);
-    row.appendChild(deleteCell)
-    
-    // Add a custom row attribute so the deleteRow function can find a newly added row
-    row.setAttribute('data-value', newRow.orderID);
+    row.appendChild(bookCell);
+    row.appendChild(firstNameCell);
+    row.appendChild(lastNameCell);
+    row.appendChild(deleteCell);
 
+    row.setAttribute('data-value', newRow.bookAuthorID);
+    
     // Add the row to the table
     currentTable.appendChild(row);
-
 }

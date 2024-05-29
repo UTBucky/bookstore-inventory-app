@@ -1,3 +1,27 @@
+header {
+  background-color: #212529;
+  color: white;
+  padding: 15px;
+  height: 120px;
+}
+
+nav a {
+  color: #F4F16F;
+  padding-right: 5px;
+  font-size: 20px;
+}
+
+h1 {
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+body {
+  font-family: Montserrat;
+  margin: 0;
+}
+
 a:link { 
     text-decoration: none; 
   } 
@@ -5,15 +29,16 @@ a:link {
     text-decoration: none; 
   } 
   a:hover { 
-    text-decoration: underline; 
+    color: rgb(163, 160, 160);
   } 
   a:active { 
-    text-decoration: none; 
+    color: white;
   }
 
-table {
-    display: flex;
-    flex-direction: column;
+table, th, td {
+    border: 1px solid;
+    padding: 10px;
+    border-collapse: collapse;
   }
 
 td {
@@ -21,6 +46,9 @@ td {
     padding-right: 10px;
 }
 
+.main-content {
+  margin: 2%;
+}
 
 .btn-edit {
     background-color: black;
@@ -54,4 +82,27 @@ td {
 .btn-box {
     width: 50px;
     height:50px;
+}
+
+.main-menu {
+  margin-bottom: 5%;
+}
+
+.dynamic-table th {
+  background-color: #212529;
+  color: white;
+}
+
+.form-box {
+  background-color: #212529;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+  margin-top: 15px;
+  width: 60%
+}
+
+.delete {
+  background: red;
 }

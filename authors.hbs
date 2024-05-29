@@ -1,6 +1,8 @@
+<!-- Citation: Code from Node.JS Starter Guide used as template -->
+
 <h2>Dynamic Author Table</h2>
 {{!-- Create a table --}}
-<table id="authors-table">
+<table id="authors-table" class="dynamic-table">
 
     {{!-- Header section --}}
     <thead>
@@ -31,6 +33,7 @@
 </table>
 
 <!-- ADD AUTHOR FORM -->
+<div  class="form-box">
 <h2>Adding Author with AJAX</h2>
 <p>To add a new author, please enter their information below and click 'Submit'!</p>
 <form id="add-author-form-ajax">
@@ -45,3 +48,4 @@
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add_author.js"></script>
+</div>

@@ -1,6 +1,8 @@
+<!-- Citation: Code from Node.JS Starter Guide used as template -->
+
 {{!-- Create a table --}}
 <h2>Dynamic Books on Orders Table</h2>
-<table id="booksorders-table">
+<table id="booksorders-table" class="dynamic-table">
 
     {{!-- Header section --}}
     <thead>
@@ -31,31 +33,30 @@
     </tbody>
 </table>
 
-<h2>Updating a Book Line Item on an Order</h2>
-<p>To update a book on an order select a BookOrderID from the drop-down menu on the left, 
-   then select a new book from the second dropdown, and input a new quantity in the third field</p>
-<form id="update-bookorder-form-ajax">
-
-    <label for="input-bookOrderID">Update Book on Order: </label>
-    <select name="input-bookOrderID" id="input-bookOrderID-update">
-        <option>Select a Book on Order</option>
-        {{#each data}}
-        <option value="{{this.bookOrderID}}">{{this.bookOrderID}}: {{this.title}}</option>
+<!-- ADD BOOK TO ORDER FORM -->
+<div  class="form-box">
+<h2>Add a Book to an Order</h2>
+<p>To add a new book/order relationship, please enter the information below and click 'Submit'!</p>
+<form id="add-booksorders-form-ajax">
+    
+    <select name="input-orderid" id="input-orderid">
+        <option>Select an Order</option>
+        {{#each orders}}
+        <option value="{{this.orderID}}">{{this.orderID}}: {{this.fName}} {{this.lName}} - {{this.dateOrdered}}</option>
         {{/each}}
     </select>
 
-    <label for="input-bookID">Change book to: </label>
-    <select name="input-bookID" id="input-bookID-update">
-        <option>Select a Book</option>
+    <select name="input-book" id="input-bookid">
+        <option>Select a Book to Add</option>
         {{#each books}}
-        <option value="{{this.bookID}}">{{this.title}}</option>
+        <option value="{{this.bookID}}">{{this.bookID}}: {{this.title}}</option>
         {{/each}}
     </select>
 
-    <label for="input-quantity">New Quantity</label>
-    <input type="number" name="input-quantity" id="input-quantity"></input>
+    <label for="input-quantity">Quantity: </label>
+    <input type="number" name="input-quantity" id="input-quantity"></input>    
+
     <input type="submit">
-
 </form>
-
-<script src="./js/update_booksorders.js"></script>
+<script src="./js/add_booksorders.js"></script>
+</div>
