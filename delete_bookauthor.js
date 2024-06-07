@@ -1,3 +1,5 @@
+// Citation: Code from Node.JS Starter Guide used as template from source: https://github.com/osu-cs340-ecampus/nodejs-starter-app
+
 function deleteBookAuthor(bookAuthorID) {
     // Put our data we want to send in a javascript object
     let data = {
