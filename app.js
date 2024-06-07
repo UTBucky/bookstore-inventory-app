@@ -23,7 +23,6 @@ app.set('view engine', '.hbs');                 // Tell express to use the handl
     ROUTES
 */
 // Renders HOMEPAGE
-// Renders BOOKS Page
 app.get('/', function(req, res)
     {
         res.render('index');                    // Note the call to render() and not send(). Using render() ensures the templating engine
