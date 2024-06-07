@@ -10,11 +10,10 @@
         {{!-- For just the first row, we print each key of the row object as a header cell so we
         know what each column means when the page renders --}}
         <tr>
-            {{#each data.[0]}}
-            <th>
-                {{@key}}
-            </th>
-            {{/each}}
+            <th>BookOrder ID</th>
+            <th>Book Title</th>
+            <th>Order ID</th>
+            <th>Quantity</th>
         </tr>
     </thead>
 
@@ -39,22 +38,22 @@
 <p>To add a new book/order relationship, please enter the information below and click 'Submit'!</p>
 <form id="add-booksorders-form-ajax">
     
-    <select name="input-orderid" id="input-orderid">
-        <option>Select an Order</option>
+    <label for="input-orderid">Select an Order:</label>
+    <select name="input-orderid" id="input-orderid" required>
         {{#each orders}}
         <option value="{{this.orderID}}">{{this.orderID}}: {{this.fName}} {{this.lName}} - {{this.dateOrdered}}</option>
         {{/each}}
     </select>
 
-    <select name="input-book" id="input-bookid">
-        <option>Select a Book to Add</option>
+    <label for="input-book">Select a Book to Add:</label>
+    <select name="input-book" id="input-bookid" required>
         {{#each books}}
         <option value="{{this.bookID}}">{{this.bookID}}: {{this.title}}</option>
         {{/each}}
     </select>
 
     <label for="input-quantity">Quantity: </label>
-    <input type="number" name="input-quantity" id="input-quantity"></input>    
+    <input type="number" name="input-quantity" id="input-quantity" required></input>    
 
     <input type="submit">
 </form>

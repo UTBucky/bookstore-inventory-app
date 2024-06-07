@@ -45,18 +45,18 @@
 <h2>Create a New Order</h2>
 <p>To add a new order, please enter the information below and click 'Submit'!</p>
 <form id="add-order-form-ajax">
-    <select name="input-customerid" id="input-customerid">
-        <option>Select a Customer</option>
+    <label for="input-customerid">Select a Customer:</label>
+    <select name="input-customerid" id="input-customerid" required>
         {{#each customers}}
         <option value="{{this.customerID}}">{{this.customerID}}: {{this.fName}} {{this.lName}}</option>
         {{/each}}
     </select>
     
-    <label for="input-dateordered">Date Ordered: </label>
+    <label for="input-dateordered">Date Ordered: </label><br>
     <input type="date" name="input-dateordered" id="input-dateordered">
-
-    <select name="input-ordertype" id="input-ordertype">
-        <option>Select Order Type</option>
+    <br>
+    <label for="input-ordertype">Select Order Type:</label>
+    <select name="input-ordertype" id="input-ordertype" required>
         <option value="IN STORE">In Store</option>
         <option value="DELIVERY">Delivery</option>
         <option value="PICK UP">Pick Up</option>
@@ -73,26 +73,25 @@
 <h2>Update An Order</h2>
 <p>To update an order, select the order from the drop-down menu on the left and the desired changes from the drop down menus on the right</p>
 <form id="update-order-form-ajax">
-    <select name="input-orderid" id="input-orderid-update">
-        <option>Select an Order</option>
+    <label for="input-orderid">Select an Order:</label>
+    <select name="input-orderid" id="input-orderid-update" required>
         {{#each data}}
         <option value="{{this.orderID}}">{{this.orderID}}: {{this.fName}} {{this.lName}} {{this.dateOrdered}}</option>
         {{/each}}
     </select>
 
-
-    <select name="input-customerid" id="input-customerid-update">
-        <option>Select a Customer</option>
+    <label for="input-customerid">Select a Customer:</label>
+    <select name="input-customerid" id="input-customerid-update" required>
         {{#each customers}}
         <option value="{{this.customerID}}">{{this.customerID}}: {{this.fName}} {{this.lName}}</option>
         {{/each}}
     </select>
     
-    <label for="input-dateordered">Date Ordered: </label>
+    <label for="input-dateordered">Date Ordered: </label><br>
     <input type="date" name="input-dateordered" id="input-dateordered-update">
 
-    <select name="input-ordertype" id="input-ordertype-update">
-        <option>Select Order Type</option>
+    <label for="input-ordertype">Select Order Type:</label>
+    <select name="input-ordertype" id="input-ordertype-update" required>
         <option value="IN STORE">In Store</option>
         <option value="DELIVERY">Delivery</option>
         <option value="PICK UP">Pick Up</option>

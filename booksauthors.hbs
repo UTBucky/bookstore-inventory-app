@@ -41,15 +41,15 @@
 <p>To add a new book/author relationship, please enter the information below and click 'Submit'!</p>
 <form id="add-booksauthors-form-ajax">
     
-    <select name="input-title" id="input-title">
-        <option>Select a Book</option>
+    <label for="input-title">Select a Book:</label>
+    <select name="input-title" id="input-title" required>
         {{#each books}}
         <option value="{{this.bookID}}">{{this.bookID}}: {{this.title}}</option>
         {{/each}}
     </select>
 
+    <label for="input-author">Select an Author:</label>
     <select name="input-author" id="input-author">
-        <option>Select an Author</option>
         {{#each authors}}
         <option value="{{this.authorID}}">{{this.authorID}}: {{this.fName}} {{this.lName}}</option>
         {{/each}}
@@ -67,22 +67,22 @@
 <h2>Update a Book Author</h2>
 <p>To update a BookAuthor relationship, select the relationship from the drop-down menu on the left then select a new title and/or author.</p>
 <form id="update-bookauthor-form-ajax">
-    <select name="input-bookauthorid" id="input-bookauthorid-update">
-        <option>Select an BookAuthor Relationship</option>
+    <label for="input-bookauthorid">Select a BookAuthor Relationship:</label>
+    <select name="input-bookauthorid" id="input-bookauthorid-update" required>
         {{#each data}}
         <option value="{{this.bookAuthorID}}">{{this.bookAuthorID}}: {{this.title}} - {{this.fName}} {{this.lName}}</option>
         {{/each}}
     </select>
 
-    <select name="input-bookid" id="input-bookid-update">
-        <option>Select a Book</option>
+    <label for="input-bookid">Select a Book:</label>
+    <select name="input-bookid" id="input-bookid-update" required>
         {{#each books}}
         <option value="{{this.bookID}}">{{this.bookID}}: {{this.title}}</option>
         {{/each}}
     </select>
 
-    <select name="input-authorid" id="input-authorid-update">
-        <option>Select an Author</option>
+    <label for="input-authorid">Select an Author:</label>
+    <select name="input-authorid" id="input-authorid-update" required>
         {{#each authors}}
         <option value="{{this.authorID}}">{{this.authorID}}: {{this.fName}} {{this.lName}}</option>
         {{/each}}

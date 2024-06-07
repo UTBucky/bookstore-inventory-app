@@ -438,7 +438,7 @@ app.post('/add-booksauthors-ajax', function(req, res)
         }
         else
         {
-            // If there was no error, perform a SELECT * on bsg_people
+            // If there was no error, perform a SELECT on BooksAuthors
             query2 = `SELECT bookAuthorID, Books.title, Authors.fName, Authors.lName
             FROM BooksAuthors
             INNER JOIN Authors ON BooksAuthors.authorID = Authors.authorID

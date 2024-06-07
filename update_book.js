@@ -82,7 +82,7 @@ function updateRow(data, bookID){
             let td2 = updateRowIndex.getElementsByTagName("td")[3];
 
             // Reassign publisher to our value we updated to
-            td2.innerHTML = parsedData[3].publisherID; 
+            td2.innerHTML = parsedData[3].name; 
        }
     }
 }

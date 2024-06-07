@@ -77,7 +77,7 @@ function updateRow(data, bookAuthorID){
             let td = updateRowIndex.getElementsByTagName("td")[1];
 
             // Reassign book to our value we updated to
-            td.innerHTML = parsedData[1].bookID; 
+            td.innerHTML = parsedData[1].title; 
 
             // Get td of authorID
             let td2 = updateRowIndex.getElementsByTagName("td")[2];

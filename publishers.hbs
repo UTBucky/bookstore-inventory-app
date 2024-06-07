@@ -10,11 +10,8 @@
         {{!-- For just the first row, we print each key of the row object as a header cell so we
         know what each column means when the page renders --}}
         <tr>
-            {{#each data.[0]}}
-            <th>
-                {{@key}}
-            </th>
-            {{/each}}
+            <th>Publisher ID</th>
+            <th>Publisher Name</th>
         </tr>
     </thead>
 
@@ -37,7 +34,7 @@
 <p>To add a new publisher, please enter their information below and click 'Submit'!</p>
 <form id="add-publisher-form-ajax">
     <label for="input-name">Publisher Name: </label>
-    <input type="text" name="input-name" id="input-name">
+    <input type="text" name="input-name" id="input-name" required>
 
     <input type="submit">
 </form>

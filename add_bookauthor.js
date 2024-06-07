@@ -95,4 +95,10 @@ addRowToTable = (data) => {
     
     // Add the row to the table
     currentTable.appendChild(row);
+
+    let selectMenu = document.getElementById("input-bookauthorid-update");
+    let option = document.createElement("option");
+    option.text = newRow.bookAuthorID + ': ' +  newRow.title + ' - ' + newRow.fName + ' ' + newRow.lName;
+    option.value = newRow.bookAuthorID;
+    selectMenu.add(option);
 }
