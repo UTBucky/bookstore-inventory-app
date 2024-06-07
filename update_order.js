@@ -75,10 +75,10 @@ function updateRow(data, orderID){
             // Get the location of the row where we found the matching order ID
             let updateRowIndex = table.getElementsByTagName("tr")[i];
 
-            // Get td of homeworld value
+            // Get td of customerID value
             let td = updateRowIndex.getElementsByTagName("td")[1];
 
-            // Reassign homeworld to our value we updated to
+            // Reassign customerID to our value we updated to
             td.innerHTML = parsedData[1].customerID; 
        }
     }
