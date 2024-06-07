@@ -69,7 +69,7 @@ function updateRow(data, bookID){
             // Get td of title value
             let td = updateRowIndex.getElementsByTagName("td")[1];
 
-            // Reassign homeworld to our value we updated to
+            // Reassign title to our value we updated to
             td.innerHTML = parsedData[1].title; 
 
             // Get td of price value
