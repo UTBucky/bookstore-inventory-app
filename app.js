@@ -199,7 +199,7 @@ app.post('/add-book-ajax', function(req, res)
         }
         else
         {
-            // If there was no error, perform a SELECT * on bsg_people
+            // If there was no error, perform a SELECT * on Books
             query2 = `SELECT Books.bookID, Books.title, Books.price, Publishers.name
             FROM Books LEFT OUTER JOIN Publishers ON Books.publisherID = Publishers.publisherID;`;
             db.pool.query(query2, function(error, rows, fields){
@@ -253,7 +253,7 @@ app.post('/add-author-ajax', function(req, res)
         }
         else
         {
-            // If there was no error, perform a SELECT * on bsg_people
+            // If there was no error, perform a SELECT * on Authors
             query2 = `SELECT * FROM Authors;`;
             db.pool.query(query2, function(error, rows, fields){
 
@@ -293,7 +293,7 @@ app.post('/add-publisher-ajax', function(req, res)
         }
         else
         {
-            // If there was no error, perform a SELECT * on bsg_people
+            // If there was no error, perform a SELECT * on Publishers
             query2 = `SELECT * FROM Publishers;`;
             db.pool.query(query2, function(error, rows, fields){
 
@@ -480,7 +480,7 @@ app.post('/add-booksorders-ajax', function(req, res)
         }
         else
         {
-            // If there was no error, perform a SELECT * on bsg_people
+            // If there was no error, perform a SELECT * on BooksOrders
             query2 = `SELECT bookOrderID, Books.title, orderID, quantity
             FROM BooksOrders
             INNER JOIN Books ON BooksOrders.bookID = Books.bookID;`;
@@ -549,7 +549,7 @@ app.put('/put-order-ajax', function(req,res,next){
                 res.sendStatus(400);
                 }
 
-                // If there was no error, we run our second query and return that data so we can use it to update the people's
+                // If there was no error, we run our second query and return that data so we can use it to update the Orders
                 // table on the front-end
                 else
                 {
@@ -586,7 +586,7 @@ app.put('/put-booksorders-ajax', function(req,res,next){
               res.sendStatus(400);
               }
   
-              // If there was no error, we run our second query and return that data so we can use it to update the people's
+              // If there was no error, we run our second query and return that data so we can use it to update the BooksOrders
               // table on the front-end
               else
               {
@@ -644,6 +644,7 @@ app.put('/put-bookauthor-ajax', function(req,res,next){
                 }
     })});
 
+// UPDATE BOOKS
 app.put('/put-book-ajax', function(req,res,next){
     let data = req.body;
     
@@ -671,7 +672,7 @@ app.put('/put-book-ajax', function(req,res,next){
                 res.sendStatus(400);
                 }
     
-                // If there was no error, we run our second query and return that data so we can use it to update the people's
+                // If there was no error, we run our second query and return that data so we can use it to update the Books
                 // table on the front-end
                 else
                 {
