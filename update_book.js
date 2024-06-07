@@ -1,3 +1,5 @@
+// Citation: Code from Node.JS Starter Guide used as template from source: https://github.com/osu-cs340-ecampus/nodejs-starter-app
+
 // Get the objects we need to modify
 let updateBookForm = document.getElementById('update-book-form-ajax');
 
