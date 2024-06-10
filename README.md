@@ -8,3 +8,4 @@ All JavaScript files as well as Handlebars files utilize code from Node.JS Start
   Swapped sample data with our own data and otherwise utilized code as is while going through guide's steps
   from source: https://github.com/osu-cs340-ecampus/nodejs-starter-app
 
+Note: Some pages may require reloading for CRUD changes to be visible
