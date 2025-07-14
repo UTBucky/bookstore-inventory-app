@@ -27,6 +27,7 @@ A Node.js and MySQL-powered inventory management system for bookstores. This app
 ```bash
 git clone https://github.com/UTBucky/bookstore-inventory-app
 cd bookstore-inventory-app
+```bash
 
 **2. Install dependencies:**
 
